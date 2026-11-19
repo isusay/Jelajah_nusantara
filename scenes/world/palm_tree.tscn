@@ -1,0 +1,111 @@
+[gd_scene format=3]
+[sub_resource type="StandardMaterial3D" id="Mat_trunk"]
+albedo_color = Color(0.47, 0.34, 0.2, 1)
+roughness = 0.95
+
+[sub_resource type="StandardMaterial3D" id="Mat_leaf"]
+albedo_color = Color(0.18, 0.5, 0.2, 1)
+roughness = 0.8
+cull_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="Mat_coconut"]
+albedo_color = Color(0.3, 0.2, 0.1, 1)
+roughness = 0.9
+
+[sub_resource type="CylinderMesh" id="Mesh_trunk"]
+material = SubResource("Mat_trunk")
+top_radius = 0.16
+bottom_radius = 0.26
+height = 5.2
+radial_segments = 10
+
+[sub_resource type="CylinderShape3D" id="Shape_trunk"]
+radius = 0.26
+height = 5.2
+
+[sub_resource type="BoxMesh" id="Mesh_leaf"]
+material = SubResource("Mat_leaf")
+size = Vector3(0.7, 0.05, 2.8)
+
+[sub_resource type="SphereMesh" id="Mesh_coconut"]
+material = SubResource("Mat_coconut")
+radius = 0.16
+height = 0.32
+radial_segments = 10
+rings = 6
+
+[node name="PalmTree" type="StaticBody3D"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="TrunkCollision" type="CollisionShape3D" parent="."]
+position = Vector3(0, 2.6, 0)
+shape = SubResource("Shape_trunk")
+
+[node name="Trunk" type="MeshInstance3D" parent="."]
+position = Vector3(0, 2.6, 0)
+mesh = SubResource("Mesh_trunk")
+
+[node name="Crown" type="Node3D" parent="."]
+position = Vector3(0, 5.15, 0)
+
+[node name="LeafPivot1" type="Node3D" parent="Crown"]
+rotation = Vector3(0.45, 0, 0)
+
+[node name="Leaf" type="MeshInstance3D" parent="Crown/LeafPivot1"]
+position = Vector3(0, 0, 1.3)
+mesh = SubResource("Mesh_leaf")
+
+[node name="LeafPivot2" type="Node3D" parent="Crown"]
+rotation = Vector3(0.57, 0.8976, 0)
+
+[node name="Leaf" type="MeshInstance3D" parent="Crown/LeafPivot2"]
+position = Vector3(0, 0, 1.3)
+mesh = SubResource("Mesh_leaf")
+
+[node name="LeafPivot3" type="Node3D" parent="Crown"]
+rotation = Vector3(0.45, 1.7952, 0)
+
+[node name="Leaf" type="MeshInstance3D" parent="Crown/LeafPivot3"]
+position = Vector3(0, 0, 1.3)
+mesh = SubResource("Mesh_leaf")
+
+[node name="LeafPivot4" type="Node3D" parent="Crown"]
+rotation = Vector3(0.57, 2.6928, 0)
+
+[node name="Leaf" type="MeshInstance3D" parent="Crown/LeafPivot4"]
+position = Vector3(0, 0, 1.3)
+mesh = SubResource("Mesh_leaf")
+
+[node name="LeafPivot5" type="Node3D" parent="Crown"]
+rotation = Vector3(0.45, 3.5904, 0)
+
+[node name="Leaf" type="MeshInstance3D" parent="Crown/LeafPivot5"]
+position = Vector3(0, 0, 1.3)
+mesh = SubResource("Mesh_leaf")
+
+[node name="LeafPivot6" type="Node3D" parent="Crown"]
+rotation = Vector3(0.57, 4.488, 0)
+
+[node name="Leaf" type="MeshInstance3D" parent="Crown/LeafPivot6"]
+position = Vector3(0, 0, 1.3)
+mesh = SubResource("Mesh_leaf")
+
+[node name="LeafPivot7" type="Node3D" parent="Crown"]
+rotation = Vector3(0.45, 5.3856, 0)
+
+[node name="Leaf" type="MeshInstance3D" parent="Crown/LeafPivot7"]
+position = Vector3(0, 0, 1.3)
+mesh = SubResource("Mesh_leaf")
+
+[node name="Coconut1" type="MeshInstance3D" parent="Crown"]
+position = Vector3(0.2, -0.2, 0.1)
+mesh = SubResource("Mesh_coconut")
+
+[node name="Coconut2" type="MeshInstance3D" parent="Crown"]
+position = Vector3(-0.15, -0.2, 0.18)
+mesh = SubResource("Mesh_coconut")
+
+[node name="Coconut3" type="MeshInstance3D" parent="Crown"]
+position = Vector3(0.02, -0.2, -0.22)
+mesh = SubResource("Mesh_coconut")

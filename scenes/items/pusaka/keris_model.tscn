@@ -1,0 +1,124 @@
+[gd_scene format=3]
+
+[sub_resource type="StandardMaterial3D" id="Mat_gold"]
+albedo_color = Color(0.98, 0.78, 0.25, 1)
+metallic = 0.9
+roughness = 0.25
+emission_enabled = true
+emission = Color(1, 0.72, 0.2, 1)
+emission_energy_multiplier = 0.9
+
+[sub_resource type="StandardMaterial3D" id="Mat_blade"]
+albedo_color = Color(0.78, 0.8, 0.84, 1)
+metallic = 0.95
+roughness = 0.3
+emission_enabled = true
+emission = Color(0.9, 0.75, 0.4, 1)
+emission_energy_multiplier = 0.35
+
+[sub_resource type="StandardMaterial3D" id="Mat_hilt"]
+albedo_color = Color(0.3, 0.17, 0.08, 1)
+roughness = 0.7
+
+[sub_resource type="BoxMesh" id="Mesh_1"]
+material = SubResource("Mat_hilt")
+size = Vector3(0.055, 0.2, 0.05)
+
+[sub_resource type="BoxMesh" id="Mesh_2"]
+material = SubResource("Mat_gold")
+size = Vector3(0.075, 0.05, 0.06)
+
+[sub_resource type="BoxMesh" id="Mesh_3"]
+material = SubResource("Mat_gold")
+size = Vector3(0.2, 0.035, 0.05)
+
+[sub_resource type="BoxMesh" id="Mesh_4"]
+material = SubResource("Mat_blade")
+size = Vector3(0.085, 0.13, 0.022)
+
+[sub_resource type="BoxMesh" id="Mesh_5"]
+material = SubResource("Mat_blade")
+size = Vector3(0.077, 0.13, 0.022)
+
+[sub_resource type="BoxMesh" id="Mesh_6"]
+material = SubResource("Mat_blade")
+size = Vector3(0.069, 0.13, 0.022)
+
+[sub_resource type="BoxMesh" id="Mesh_7"]
+material = SubResource("Mat_blade")
+size = Vector3(0.061, 0.13, 0.022)
+
+[sub_resource type="BoxMesh" id="Mesh_8"]
+material = SubResource("Mat_blade")
+size = Vector3(0.053, 0.13, 0.022)
+
+[sub_resource type="BoxMesh" id="Mesh_9"]
+material = SubResource("Mat_blade")
+size = Vector3(0.045, 0.13, 0.022)
+
+[sub_resource type="BoxMesh" id="Mesh_10"]
+material = SubResource("Mat_blade")
+size = Vector3(0.037, 0.13, 0.022)
+
+[sub_resource type="CylinderMesh" id="Mesh_tip"]
+material = SubResource("Mat_blade")
+top_radius = 0.0
+bottom_radius = 0.022
+height = 0.12
+radial_segments = 6
+
+[node name="KerisModel" type="Node3D"]
+
+[node name="Hilt" type="MeshInstance3D" parent="."]
+position = Vector3(0.012, -0.11, 0)
+rotation = Vector3(0, 0, -0.18)
+mesh = SubResource("Mesh_1")
+
+[node name="Pommel" type="MeshInstance3D" parent="."]
+position = Vector3(0.03, -0.215, 0)
+mesh = SubResource("Mesh_2")
+
+[node name="Guard" type="MeshInstance3D" parent="."]
+position = Vector3(0.01, 0.012, 0)
+rotation = Vector3(0, 0, 0.12)
+mesh = SubResource("Mesh_3")
+
+[node name="Blade1" type="MeshInstance3D" parent="."]
+position = Vector3(0.022, 0.08, 0)
+rotation = Vector3(0, 0, -0.32)
+mesh = SubResource("Mesh_4")
+
+[node name="Blade2" type="MeshInstance3D" parent="."]
+position = Vector3(-0.0196, 0.18, 0)
+rotation = Vector3(0, 0, 0.32)
+mesh = SubResource("Mesh_5")
+
+[node name="Blade3" type="MeshInstance3D" parent="."]
+position = Vector3(0.0171, 0.28, 0)
+rotation = Vector3(0, 0, -0.32)
+mesh = SubResource("Mesh_6")
+
+[node name="Blade4" type="MeshInstance3D" parent="."]
+position = Vector3(-0.0147, 0.38, 0)
+rotation = Vector3(0, 0, 0.32)
+mesh = SubResource("Mesh_7")
+
+[node name="Blade5" type="MeshInstance3D" parent="."]
+position = Vector3(0.0122, 0.48, 0)
+rotation = Vector3(0, 0, -0.32)
+mesh = SubResource("Mesh_8")
+
+[node name="Blade6" type="MeshInstance3D" parent="."]
+position = Vector3(-0.0098, 0.58, 0)
+rotation = Vector3(0, 0, 0.32)
+mesh = SubResource("Mesh_9")
+
+[node name="Blade7" type="MeshInstance3D" parent="."]
+position = Vector3(0.0073, 0.68, 0)
+rotation = Vector3(0, 0, -0.32)
+mesh = SubResource("Mesh_10")
+
+[node name="Tip" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.78, 0)
+scale = Vector3(1, 1, 0.5)
+mesh = SubResource("Mesh_tip")

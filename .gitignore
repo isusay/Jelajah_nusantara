@@ -1,0 +1,17 @@
+# Cache dan hasil impor Godot (dibuat ulang otomatis saat project dibuka)
+.godot/
+
+# Hasil ekspor
+/build/
+/export/
+*.exe
+*.pck
+*.apk
+*.aab
+
+# Berkas sementara editor dan sistem
+*.tmp
+*.translation
+.DS_Store
+Thumbs.db
+desktop.ini

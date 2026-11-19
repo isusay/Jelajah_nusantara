@@ -1,0 +1,99 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/world/chest.gd" id="1_script"]
+
+[sub_resource type="BoxShape3D" id="Shape_chest"]
+size = Vector3(1, 0.75, 0.7)
+
+[sub_resource type="StandardMaterial3D" id="Mat_wood"]
+albedo_color = Color(0.45, 0.27, 0.13, 1)
+roughness = 0.85
+
+[sub_resource type="StandardMaterial3D" id="Mat_wood_dark"]
+albedo_color = Color(0.33, 0.19, 0.09, 1)
+roughness = 0.85
+
+[sub_resource type="StandardMaterial3D" id="Mat_gold"]
+albedo_color = Color(0.95, 0.74, 0.2, 1)
+metallic = 0.8
+roughness = 0.3
+emission_enabled = true
+emission = Color(0.95, 0.7, 0.15, 1)
+emission_energy_multiplier = 0.6
+
+[sub_resource type="BoxMesh" id="Mesh_base"]
+material = SubResource("Mat_wood")
+size = Vector3(1, 0.55, 0.7)
+
+[sub_resource type="BoxMesh" id="Mesh_band"]
+material = SubResource("Mat_gold")
+size = Vector3(0.12, 0.57, 0.72)
+
+[sub_resource type="BoxMesh" id="Mesh_lid"]
+material = SubResource("Mat_wood_dark")
+size = Vector3(1.04, 0.2, 0.74)
+
+[sub_resource type="BoxMesh" id="Mesh_lid_band"]
+material = SubResource("Mat_gold")
+size = Vector3(0.12, 0.22, 0.76)
+
+[sub_resource type="BoxMesh" id="Mesh_lock"]
+material = SubResource("Mat_gold")
+size = Vector3(0.16, 0.2, 0.06)
+
+[sub_resource type="SceneReplicationConfig" id="Replication_chest"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 0
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 0
+properties/2/path = NodePath(".:is_open")
+properties/2/spawn = true
+properties/2/replication_mode = 2
+properties/3/path = NodePath(".:scale")
+properties/3/spawn = true
+properties/3/replication_mode = 0
+
+[node name="Chest" type="StaticBody3D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_script")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+position = Vector3(0, 0.375, 0)
+shape = SubResource("Shape_chest")
+
+[node name="Base" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.275, 0)
+mesh = SubResource("Mesh_base")
+
+[node name="BandLeft" type="MeshInstance3D" parent="."]
+position = Vector3(-0.3, 0.275, 0)
+mesh = SubResource("Mesh_band")
+
+[node name="BandRight" type="MeshInstance3D" parent="."]
+position = Vector3(0.3, 0.275, 0)
+mesh = SubResource("Mesh_band")
+
+[node name="LidPivot" type="Node3D" parent="."]
+position = Vector3(0, 0.55, -0.35)
+
+[node name="Lid" type="MeshInstance3D" parent="LidPivot"]
+position = Vector3(0, 0.1, 0.35)
+mesh = SubResource("Mesh_lid")
+
+[node name="LidBandLeft" type="MeshInstance3D" parent="LidPivot"]
+position = Vector3(-0.3, 0.1, 0.35)
+mesh = SubResource("Mesh_lid_band")
+
+[node name="LidBandRight" type="MeshInstance3D" parent="LidPivot"]
+position = Vector3(0.3, 0.1, 0.35)
+mesh = SubResource("Mesh_lid_band")
+
+[node name="Lock" type="MeshInstance3D" parent="LidPivot"]
+position = Vector3(0, 0.02, 0.73)
+mesh = SubResource("Mesh_lock")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("Replication_chest")

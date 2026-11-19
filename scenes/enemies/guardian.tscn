@@ -1,0 +1,207 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/enemies/enemy.gd" id="1_script"]
+
+[sub_resource type="CapsuleShape3D" id="Shape_body"]
+radius = 0.7
+height = 2.6
+
+[sub_resource type="StandardMaterial3D" id="Mat_stone"]
+albedo_color = Color(0.52, 0.52, 0.48, 1)
+roughness = 1.0
+
+[sub_resource type="StandardMaterial3D" id="Mat_stone_dark"]
+albedo_color = Color(0.36, 0.37, 0.34, 1)
+roughness = 1.0
+
+[sub_resource type="StandardMaterial3D" id="Mat_moss"]
+albedo_color = Color(0.3, 0.43, 0.24, 1)
+roughness = 1.0
+
+[sub_resource type="StandardMaterial3D" id="Mat_eye"]
+albedo_color = Color(1, 0.55, 0.1, 1)
+shading_mode = 0
+emission_enabled = true
+emission = Color(1, 0.5, 0.1, 1)
+emission_energy_multiplier = 2.5
+
+[sub_resource type="StandardMaterial3D" id="Mat_health"]
+shading_mode = 0
+albedo_color = Color(0.9, 0.16, 0.14, 1)
+billboard_mode = 1
+billboard_keep_scale = true
+no_depth_test = true
+
+[sub_resource type="QuadMesh" id="Mesh_health"]
+material = SubResource("Mat_health")
+size = Vector2(1.8, 0.18)
+
+[sub_resource type="BoxMesh" id="Mesh_0"]
+material = SubResource("Mat_stone_dark")
+size = Vector3(1.4, 0.5, 1.2)
+
+[sub_resource type="BoxMesh" id="Mesh_1"]
+material = SubResource("Mat_stone")
+size = Vector3(1.2, 1.3, 0.9)
+
+[sub_resource type="BoxMesh" id="Mesh_2"]
+material = SubResource("Mat_stone_dark")
+size = Vector3(1.28, 0.22, 0.98)
+
+[sub_resource type="BoxMesh" id="Mesh_3"]
+material = SubResource("Mat_stone")
+size = Vector3(0.82, 0.7, 0.76)
+
+[sub_resource type="BoxMesh" id="Mesh_4"]
+material = SubResource("Mat_stone_dark")
+size = Vector3(0.66, 0.2, 0.66)
+
+[sub_resource type="BoxMesh" id="Mesh_5"]
+material = SubResource("Mat_stone_dark")
+size = Vector3(0.38, 0.26, 0.38)
+
+[sub_resource type="BoxMesh" id="Mesh_6"]
+material = SubResource("Mat_eye")
+size = Vector3(0.16, 0.1, 0.05)
+
+[sub_resource type="BoxMesh" id="Mesh_7"]
+material = SubResource("Mat_eye")
+size = Vector3(0.16, 0.1, 0.05)
+
+[sub_resource type="BoxMesh" id="Mesh_8"]
+material = SubResource("Mat_stone_dark")
+size = Vector3(0.42, 0.1, 0.05)
+
+[sub_resource type="BoxMesh" id="Mesh_9"]
+material = SubResource("Mat_stone")
+size = Vector3(0.36, 1.1, 0.42)
+
+[sub_resource type="BoxMesh" id="Mesh_10"]
+material = SubResource("Mat_stone")
+size = Vector3(0.36, 1.1, 0.42)
+
+[sub_resource type="CylinderMesh" id="Mesh_11"]
+material = SubResource("Mat_stone_dark")
+top_radius = 0.2
+bottom_radius = 0.11
+height = 1.6
+radial_segments = 10
+
+[sub_resource type="BoxMesh" id="Mesh_12"]
+material = SubResource("Mat_moss")
+size = Vector3(0.5, 0.08, 0.5)
+
+[sub_resource type="BoxMesh" id="Mesh_13"]
+material = SubResource("Mat_moss")
+size = Vector3(0.7, 0.07, 0.4)
+
+[sub_resource type="SceneReplicationConfig" id="Replication_enemy"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:health")
+properties/2/spawn = true
+properties/2/replication_mode = 2
+properties/3/path = NodePath(".:state")
+properties/3/spawn = true
+properties/3/replication_mode = 2
+
+[node name="Guardian" type="CharacterBody3D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_script")
+display_name = "Arca Penjaga"
+behavior = 1
+max_health = 180
+walk_speed = 1.4
+chase_speed = 2.6
+aggro_radius = 11.0
+leash_radius = 16.0
+attack_trigger_distance = 2.6
+attack_damage = 30
+attack_cooldown_seconds = 2.5
+windup_seconds = 1.0
+recover_seconds = 1.2
+stagger_strength = 0.0
+hit_radius = 1.0
+slam_radius = 3.4
+windup_sound = "stone_grind"
+loot_item_ids = Array[String](["chalice"])
+loot_chance = 1.0
+coins_min = 25
+coins_max = 40
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+position = Vector3(0, 1.3, 0)
+shape = SubResource("Shape_body")
+
+[node name="Visual" type="Node3D" parent="."]
+
+[node name="Base" type="MeshInstance3D" parent="Visual"]
+position = Vector3(0, 0.25, 0)
+mesh = SubResource("Mesh_0")
+
+[node name="Body" type="MeshInstance3D" parent="Visual"]
+position = Vector3(0, 1.15, 0)
+mesh = SubResource("Mesh_1")
+
+[node name="Belt" type="MeshInstance3D" parent="Visual"]
+position = Vector3(0, 0.72, 0)
+mesh = SubResource("Mesh_2")
+
+[node name="Head" type="MeshInstance3D" parent="Visual"]
+position = Vector3(0, 2.15, 0)
+mesh = SubResource("Mesh_3")
+
+[node name="CrownLow" type="MeshInstance3D" parent="Visual"]
+position = Vector3(0, 2.6, 0)
+mesh = SubResource("Mesh_4")
+
+[node name="CrownHigh" type="MeshInstance3D" parent="Visual"]
+position = Vector3(0, 2.83, 0)
+mesh = SubResource("Mesh_5")
+
+[node name="EyeLeft" type="MeshInstance3D" parent="Visual"]
+position = Vector3(0.2, 2.24, 0.39)
+mesh = SubResource("Mesh_6")
+
+[node name="EyeRight" type="MeshInstance3D" parent="Visual"]
+position = Vector3(-0.2, 2.24, 0.39)
+mesh = SubResource("Mesh_7")
+
+[node name="Mouth" type="MeshInstance3D" parent="Visual"]
+position = Vector3(0, 1.98, 0.39)
+mesh = SubResource("Mesh_8")
+
+[node name="ArmLeft" type="MeshInstance3D" parent="Visual"]
+position = Vector3(0.8, 1.2, 0.08)
+mesh = SubResource("Mesh_9")
+
+[node name="ArmRight" type="MeshInstance3D" parent="Visual"]
+position = Vector3(-0.8, 1.2, 0.08)
+mesh = SubResource("Mesh_10")
+
+[node name="Club" type="MeshInstance3D" parent="Visual"]
+position = Vector3(0.8, 1.15, 0.55)
+rotation = Vector3(0.5, 0, 0)
+mesh = SubResource("Mesh_11")
+
+[node name="MossShoulder" type="MeshInstance3D" parent="Visual"]
+position = Vector3(-0.5, 1.83, 0.1)
+mesh = SubResource("Mesh_12")
+
+[node name="MossBase" type="MeshInstance3D" parent="Visual"]
+position = Vector3(0.3, 0.52, 0.45)
+mesh = SubResource("Mesh_13")
+
+[node name="HealthBar" type="MeshInstance3D" parent="."]
+position = Vector3(0, 3.35, 0)
+visible = false
+cast_shadow = 0
+mesh = SubResource("Mesh_health")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("Replication_enemy")

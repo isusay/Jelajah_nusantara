@@ -1,0 +1,215 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/enemies/enemy.gd" id="1_script"]
+
+[sub_resource type="CapsuleShape3D" id="Shape_body"]
+radius = 0.3
+height = 1
+
+[sub_resource type="StandardMaterial3D" id="Mat_fur"]
+albedo_color = Color(0.46, 0.33, 0.2, 1)
+roughness = 0.9
+
+[sub_resource type="StandardMaterial3D" id="Mat_face"]
+albedo_color = Color(0.82, 0.66, 0.5, 1)
+roughness = 0.8
+
+[sub_resource type="StandardMaterial3D" id="Mat_dark"]
+albedo_color = Color(0.12, 0.09, 0.07, 1)
+roughness = 0.7
+
+[sub_resource type="StandardMaterial3D" id="Mat_health"]
+shading_mode = 0
+albedo_color = Color(0.9, 0.16, 0.14, 1)
+billboard_mode = 1
+billboard_keep_scale = true
+no_depth_test = true
+
+[sub_resource type="QuadMesh" id="Mesh_health"]
+material = SubResource("Mat_health")
+size = Vector2(0.9, 0.12)
+
+[sub_resource type="CapsuleMesh" id="Mesh_0"]
+material = SubResource("Mat_fur")
+radius = 0.24
+height = 0.72
+radial_segments = 12
+rings = 4
+
+[sub_resource type="SphereMesh" id="Mesh_1"]
+material = SubResource("Mat_fur")
+radius = 0.21
+height = 0.42
+radial_segments = 12
+rings = 6
+
+[sub_resource type="SphereMesh" id="Mesh_2"]
+material = SubResource("Mat_face")
+radius = 0.14
+height = 0.28
+radial_segments = 12
+rings = 6
+
+[sub_resource type="SphereMesh" id="Mesh_3"]
+material = SubResource("Mat_face")
+radius = 0.07
+height = 0.14
+radial_segments = 12
+rings = 6
+
+[sub_resource type="SphereMesh" id="Mesh_4"]
+material = SubResource("Mat_face")
+radius = 0.07
+height = 0.14
+radial_segments = 12
+rings = 6
+
+[sub_resource type="SphereMesh" id="Mesh_5"]
+material = SubResource("Mat_dark")
+radius = 0.03
+height = 0.06
+radial_segments = 12
+rings = 6
+
+[sub_resource type="SphereMesh" id="Mesh_6"]
+material = SubResource("Mat_dark")
+radius = 0.03
+height = 0.06
+radial_segments = 12
+rings = 6
+
+[sub_resource type="CylinderMesh" id="Mesh_7"]
+material = SubResource("Mat_fur")
+top_radius = 0.06
+bottom_radius = 0.05
+height = 0.62
+radial_segments = 10
+
+[sub_resource type="CylinderMesh" id="Mesh_8"]
+material = SubResource("Mat_fur")
+top_radius = 0.06
+bottom_radius = 0.05
+height = 0.62
+radial_segments = 10
+
+[sub_resource type="CylinderMesh" id="Mesh_9"]
+material = SubResource("Mat_fur")
+top_radius = 0.08
+bottom_radius = 0.06
+height = 0.42
+radial_segments = 10
+
+[sub_resource type="CylinderMesh" id="Mesh_10"]
+material = SubResource("Mat_fur")
+top_radius = 0.08
+bottom_radius = 0.06
+height = 0.42
+radial_segments = 10
+
+[sub_resource type="CylinderMesh" id="Mesh_11"]
+material = SubResource("Mat_fur")
+top_radius = 0.025
+bottom_radius = 0.045
+height = 0.8
+radial_segments = 10
+
+[sub_resource type="SceneReplicationConfig" id="Replication_enemy"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:health")
+properties/2/spawn = true
+properties/2/replication_mode = 2
+properties/3/path = NodePath(".:state")
+properties/3/spawn = true
+properties/3/replication_mode = 2
+
+[node name="Monkey" type="CharacterBody3D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_script")
+display_name = "Kera Pencuri"
+behavior = 2
+max_health = 30
+walk_speed = 2.6
+chase_speed = 7.2
+aggro_radius = 12.0
+leash_radius = 26.0
+attack_trigger_distance = 1.5
+attack_cooldown_seconds = 4.0
+stagger_strength = 6.0
+hit_radius = 0.5
+loot_item_ids = Array[String](["bone"])
+loot_chance = 0.3
+coins_min = 3
+coins_max = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+position = Vector3(0, 0.5, 0)
+shape = SubResource("Shape_body")
+
+[node name="Visual" type="Node3D" parent="."]
+
+[node name="Torso" type="MeshInstance3D" parent="Visual"]
+position = Vector3(0, 0.55, 0)
+rotation = Vector3(0.45, 0, 0)
+mesh = SubResource("Mesh_0")
+
+[node name="Head" type="MeshInstance3D" parent="Visual"]
+position = Vector3(0, 0.98, 0.2)
+mesh = SubResource("Mesh_1")
+
+[node name="Face" type="MeshInstance3D" parent="Visual"]
+position = Vector3(0, 0.94, 0.33)
+mesh = SubResource("Mesh_2")
+
+[node name="EarLeft" type="MeshInstance3D" parent="Visual"]
+position = Vector3(0.21, 1.03, 0.16)
+mesh = SubResource("Mesh_3")
+
+[node name="EarRight" type="MeshInstance3D" parent="Visual"]
+position = Vector3(-0.21, 1.03, 0.16)
+mesh = SubResource("Mesh_4")
+
+[node name="EyeLeft" type="MeshInstance3D" parent="Visual"]
+position = Vector3(0.07, 1, 0.44)
+mesh = SubResource("Mesh_5")
+
+[node name="EyeRight" type="MeshInstance3D" parent="Visual"]
+position = Vector3(-0.07, 1, 0.44)
+mesh = SubResource("Mesh_6")
+
+[node name="ArmLeft" type="MeshInstance3D" parent="Visual"]
+position = Vector3(0.28, 0.44, 0.22)
+rotation = Vector3(0.5, 0, -0.15)
+mesh = SubResource("Mesh_7")
+
+[node name="ArmRight" type="MeshInstance3D" parent="Visual"]
+position = Vector3(-0.28, 0.44, 0.22)
+rotation = Vector3(0.5, 0, 0.15)
+mesh = SubResource("Mesh_8")
+
+[node name="LegLeft" type="MeshInstance3D" parent="Visual"]
+position = Vector3(0.15, 0.21, -0.12)
+mesh = SubResource("Mesh_9")
+
+[node name="LegRight" type="MeshInstance3D" parent="Visual"]
+position = Vector3(-0.15, 0.21, -0.12)
+mesh = SubResource("Mesh_10")
+
+[node name="Tail" type="MeshInstance3D" parent="Visual"]
+position = Vector3(0, 0.72, -0.5)
+rotation = Vector3(-0.7, 0, 0)
+mesh = SubResource("Mesh_11")
+
+[node name="HealthBar" type="MeshInstance3D" parent="."]
+position = Vector3(0, 1.45, 0)
+visible = false
+cast_shadow = 0
+mesh = SubResource("Mesh_health")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("Replication_enemy")

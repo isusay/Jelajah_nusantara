@@ -1,0 +1,55 @@
+[gd_scene format=3]
+
+[sub_resource type="StandardMaterial3D" id="Mat_banana_tip"]
+albedo_color = Color(0.35, 0.25, 0.1, 1)
+roughness = 0.8
+
+[sub_resource type="BoxMesh" id="Mesh_0"]
+material = SubResource("Mat_banana_tip")
+size = Vector3(0.05, 0.06, 0.05)
+
+[sub_resource type="StandardMaterial3D" id="Mat_banana"]
+albedo_color = Color(0.97, 0.84, 0.25, 1)
+roughness = 0.6
+
+[sub_resource type="CapsuleMesh" id="Mesh_1"]
+material = SubResource("Mat_banana")
+radius = 0.04
+height = 0.26
+radial_segments = 10
+rings = 4
+
+[sub_resource type="CapsuleMesh" id="Mesh_2"]
+material = SubResource("Mat_banana")
+radius = 0.04
+height = 0.26
+radial_segments = 10
+rings = 4
+
+[sub_resource type="CapsuleMesh" id="Mesh_3"]
+material = SubResource("Mat_banana")
+radius = 0.04
+height = 0.26
+radial_segments = 10
+rings = 4
+
+[node name="PisangModel" type="Node3D"]
+
+[node name="Stem" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.13, 0)
+mesh = SubResource("Mesh_0")
+
+[node name="Banana1" type="MeshInstance3D" parent="."]
+position = Vector3(-0.0575, 0, -0.02)
+rotation = Vector3(0.25, 0, 0.55)
+mesh = SubResource("Mesh_1")
+
+[node name="Banana2" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0, 0)
+rotation = Vector3(0.25, 0, 0)
+mesh = SubResource("Mesh_2")
+
+[node name="Banana3" type="MeshInstance3D" parent="."]
+position = Vector3(0.0575, 0, 0.02)
+rotation = Vector3(0.25, 0, -0.55)
+mesh = SubResource("Mesh_3")

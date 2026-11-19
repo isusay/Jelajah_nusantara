@@ -1,0 +1,108 @@
+[gd_scene format=3]
+
+[sub_resource type="BoxShape3D" id="Shape_hut"]
+size = Vector3(5.2, 4, 4.2)
+
+[sub_resource type="StandardMaterial3D" id="Mat_wood_dark"]
+albedo_color = Color(0.3, 0.2, 0.11, 1)
+roughness = 0.9
+
+[sub_resource type="StandardMaterial3D" id="Mat_floor"]
+albedo_color = Color(0.5, 0.36, 0.22, 1)
+roughness = 0.9
+
+[sub_resource type="StandardMaterial3D" id="Mat_bamboo"]
+albedo_color = Color(0.76, 0.62, 0.38, 1)
+roughness = 0.85
+
+[sub_resource type="StandardMaterial3D" id="Mat_thatch"]
+albedo_color = Color(0.5, 0.39, 0.2, 1)
+roughness = 1.0
+
+[sub_resource type="BoxMesh" id="Mesh_stilt"]
+material = SubResource("Mat_wood_dark")
+size = Vector3(0.3, 1.3, 0.3)
+
+[sub_resource type="BoxMesh" id="Mesh_floor"]
+material = SubResource("Mat_floor")
+size = Vector3(5.2, 0.25, 4.2)
+
+[sub_resource type="BoxMesh" id="Mesh_walls"]
+material = SubResource("Mat_bamboo")
+size = Vector3(4.6, 2.1, 3.6)
+
+[sub_resource type="BoxMesh" id="Mesh_door"]
+material = SubResource("Mat_wood_dark")
+size = Vector3(0.9, 1.6, 0.08)
+
+[sub_resource type="BoxMesh" id="Mesh_window"]
+material = SubResource("Mat_wood_dark")
+size = Vector3(0.7, 0.6, 0.08)
+
+[sub_resource type="PrismMesh" id="Mesh_roof"]
+material = SubResource("Mat_thatch")
+size = Vector3(6, 1.9, 5)
+
+[sub_resource type="BoxMesh" id="Mesh_step"]
+material = SubResource("Mat_floor")
+size = Vector3(1.2, 0.2, 0.4)
+
+[node name="Hut" type="StaticBody3D"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+position = Vector3(0, 2, 0)
+shape = SubResource("Shape_hut")
+
+[node name="StiltFrontLeft" type="MeshInstance3D" parent="."]
+position = Vector3(2.2, 0.6, 1.7)
+mesh = SubResource("Mesh_stilt")
+
+[node name="StiltFrontRight" type="MeshInstance3D" parent="."]
+position = Vector3(-2.2, 0.6, 1.7)
+mesh = SubResource("Mesh_stilt")
+
+[node name="StiltBackLeft" type="MeshInstance3D" parent="."]
+position = Vector3(2.2, 0.6, -1.7)
+mesh = SubResource("Mesh_stilt")
+
+[node name="StiltBackRight" type="MeshInstance3D" parent="."]
+position = Vector3(-2.2, 0.6, -1.7)
+mesh = SubResource("Mesh_stilt")
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+position = Vector3(0, 1.3, 0)
+mesh = SubResource("Mesh_floor")
+
+[node name="Walls" type="MeshInstance3D" parent="."]
+position = Vector3(0, 2.47, 0)
+mesh = SubResource("Mesh_walls")
+
+[node name="Door" type="MeshInstance3D" parent="."]
+position = Vector3(0, 2.23, 1.81)
+mesh = SubResource("Mesh_door")
+
+[node name="WindowLeft" type="MeshInstance3D" parent="."]
+position = Vector3(1.4, 2.7, 1.81)
+mesh = SubResource("Mesh_window")
+
+[node name="WindowRight" type="MeshInstance3D" parent="."]
+position = Vector3(-1.4, 2.7, 1.81)
+mesh = SubResource("Mesh_window")
+
+[node name="Roof" type="MeshInstance3D" parent="."]
+position = Vector3(0, 4.45, 0)
+mesh = SubResource("Mesh_roof")
+
+[node name="StepLow" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.35, 2.9)
+mesh = SubResource("Mesh_step")
+
+[node name="StepMid" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.75, 2.55)
+mesh = SubResource("Mesh_step")
+
+[node name="StepHigh" type="MeshInstance3D" parent="."]
+position = Vector3(0, 1.1, 2.25)
+mesh = SubResource("Mesh_step")

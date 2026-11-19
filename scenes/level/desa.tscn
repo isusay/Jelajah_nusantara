@@ -1,0 +1,469 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/world/hut.tscn" id="1_hut"]
+[ext_resource type="PackedScene" path="res://scenes/world/merchant.tscn" id="2_merchant"]
+[ext_resource type="FontFile" path="res://assets/fonts/Kurland.ttf" id="3_font"]
+
+[sub_resource type="StandardMaterial3D" id="Mat_wood"]
+albedo_color = Color(0.46, 0.31, 0.18, 1)
+roughness = 0.9
+
+[sub_resource type="StandardMaterial3D" id="Mat_wood_dark"]
+albedo_color = Color(0.28, 0.18, 0.1, 1)
+roughness = 0.9
+
+[sub_resource type="StandardMaterial3D" id="Mat_rock"]
+albedo_color = Color(0.46, 0.45, 0.43, 1)
+roughness = 0.95
+
+[sub_resource type="StandardMaterial3D" id="Mat_hull"]
+albedo_color = Color(0.2, 0.42, 0.5, 1)
+roughness = 0.7
+
+[sub_resource type="StandardMaterial3D" id="Mat_cloth"]
+albedo_color = Color(0.93, 0.88, 0.76, 1)
+roughness = 0.85
+cull_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="Mat_flame"]
+albedo_color = Color(1, 0.55, 0.12, 1)
+shading_mode = 0
+emission_enabled = true
+emission = Color(1, 0.5, 0.1, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="CylinderMesh" id="Mesh_flame"]
+material = SubResource("Mat_flame")
+top_radius = 0.0
+bottom_radius = 0.14
+height = 0.42
+radial_segments = 8
+
+[sub_resource type="CylinderMesh" id="Mesh_barrel"]
+material = SubResource("Mat_wood")
+top_radius = 0.42
+bottom_radius = 0.42
+height = 1.0
+radial_segments = 12
+
+[sub_resource type="CylinderShape3D" id="Shape_barrel"]
+radius = 0.42
+height = 1.0
+
+[sub_resource type="CylinderMesh" id="Mesh_mast"]
+material = SubResource("Mat_wood_dark")
+top_radius = 0.05
+bottom_radius = 0.07
+height = 3.4
+radial_segments = 8
+
+[sub_resource type="PrismMesh" id="Mesh_sail"]
+material = SubResource("Mat_cloth")
+size = Vector3(2.2, 2.6, 0.04)
+left_to_right = 0.0
+
+[sub_resource type="BoxMesh" id="Box_0"]
+material = SubResource("Mat_wood_dark")
+size = Vector3(0.45, 3.8, 0.45)
+
+[sub_resource type="BoxShape3D" id="Box_0_shape"]
+size = Vector3(0.45, 3.8, 0.45)
+
+[sub_resource type="BoxMesh" id="Box_1"]
+material = SubResource("Mat_wood")
+size = Vector3(8.2, 0.45, 0.5)
+
+[sub_resource type="BoxShape3D" id="Box_1_shape"]
+size = Vector3(8.2, 0.45, 0.5)
+
+[sub_resource type="BoxMesh" id="Box_2"]
+material = SubResource("Mat_wood_dark")
+size = Vector3(9.2, 0.25, 0.7)
+
+[sub_resource type="BoxShape3D" id="Box_2_shape"]
+size = Vector3(9.2, 0.25, 0.7)
+
+[sub_resource type="BoxMesh" id="Box_3"]
+material = SubResource("Mat_wood_dark")
+size = Vector3(0.14, 2, 0.14)
+
+[sub_resource type="BoxShape3D" id="Box_3_shape"]
+size = Vector3(0.14, 2, 0.14)
+
+[sub_resource type="BoxMesh" id="Box_4"]
+material = SubResource("Mat_wood")
+size = Vector3(1, 1, 1)
+
+[sub_resource type="BoxShape3D" id="Box_4_shape"]
+size = Vector3(1, 1, 1)
+
+[sub_resource type="BoxMesh" id="Box_5"]
+material = SubResource("Mat_wood")
+size = Vector3(0.8, 0.8, 0.8)
+
+[sub_resource type="BoxShape3D" id="Box_5_shape"]
+size = Vector3(0.8, 0.8, 0.8)
+
+[sub_resource type="BoxMesh" id="Box_6"]
+material = SubResource("Mat_wood")
+size = Vector3(0.7, 0.7, 0.7)
+
+[sub_resource type="BoxShape3D" id="Box_6_shape"]
+size = Vector3(0.7, 0.7, 0.7)
+
+[sub_resource type="BoxMesh" id="Box_7"]
+material = SubResource("Mat_wood")
+size = Vector3(3, 0.3, 17)
+
+[sub_resource type="BoxShape3D" id="Box_7_shape"]
+size = Vector3(3, 0.3, 17)
+
+[sub_resource type="BoxMesh" id="Box_8"]
+material = SubResource("Mat_wood_dark")
+size = Vector3(0.3, 2.4, 0.3)
+
+[sub_resource type="BoxShape3D" id="Box_8_shape"]
+size = Vector3(0.3, 2.4, 0.3)
+
+[sub_resource type="BoxMesh" id="Box_9"]
+material = SubResource("Mat_wood")
+size = Vector3(0.2, 14, 9.8)
+
+[sub_resource type="BoxShape3D" id="Box_9_shape"]
+size = Vector3(0.2, 14, 9.8)
+
+[sub_resource type="BoxMesh" id="Box_10"]
+material = SubResource("Mat_wood")
+size = Vector3(3.4, 14, 0.2)
+
+[sub_resource type="BoxShape3D" id="Box_10_shape"]
+size = Vector3(3.4, 14, 0.2)
+
+[sub_resource type="BoxMesh" id="Box_11"]
+material = SubResource("Mat_hull")
+size = Vector3(1.1, 0.6, 5.2)
+
+[sub_resource type="BoxShape3D" id="Box_11_shape"]
+size = Vector3(1.1, 0.6, 5.2)
+
+[sub_resource type="BoxMesh" id="Box_12"]
+material = SubResource("Mat_hull")
+size = Vector3(0.7, 0.5, 1)
+
+[sub_resource type="BoxShape3D" id="Box_12_shape"]
+size = Vector3(0.7, 0.5, 1)
+
+[sub_resource type="BoxMesh" id="Box_13"]
+material = SubResource("Mat_wood_dark")
+size = Vector3(4.6, 0.1, 0.12)
+
+[sub_resource type="BoxShape3D" id="Box_13_shape"]
+size = Vector3(4.6, 0.1, 0.12)
+
+[sub_resource type="BoxMesh" id="Box_14"]
+material = SubResource("Mat_wood")
+size = Vector3(0.2, 0.2, 4.2)
+
+[sub_resource type="BoxShape3D" id="Box_14_shape"]
+size = Vector3(0.2, 0.2, 4.2)
+
+[node name="Desa" type="Node3D"]
+
+[node name="Decoration" type="Node3D" parent="."]
+
+[node name="Geometry" type="StaticBody3D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Buildings" type="Node3D" parent="."]
+
+[node name="SafeZone" type="Marker3D" parent="." groups=["safe_zones"]]
+position = Vector3(0, 0, 12)
+metadata/radius = 22.0
+
+[node name="Hut1" parent="Buildings" instance=ExtResource("1_hut")]
+position = Vector3(-13, 0, 5)
+rotation = Vector3(0, 1.5708, 0)
+
+[node name="Hut2" parent="Buildings" instance=ExtResource("1_hut")]
+position = Vector3(13, 0, 3)
+rotation = Vector3(0, -1.494, 0)
+
+[node name="Hut3" parent="Buildings" instance=ExtResource("1_hut")]
+position = Vector3(-14, 0, 21)
+rotation = Vector3(0, 1.9138, 0)
+
+[node name="Pedagang" parent="Buildings" instance=ExtResource("2_merchant")]
+position = Vector3(11, 0, 19)
+rotation = Vector3(0, -2.1375, 0)
+
+[node name="GatePostLeftMesh" type="MeshInstance3D" parent="Geometry"]
+position = Vector3(-3.4, 1.9, -10)
+mesh = SubResource("Box_0")
+
+[node name="GatePostLeftCollision" type="CollisionShape3D" parent="Geometry"]
+position = Vector3(-3.4, 1.9, -10)
+shape = SubResource("Box_0_shape")
+
+[node name="GatePostRightMesh" type="MeshInstance3D" parent="Geometry"]
+position = Vector3(3.4, 1.9, -10)
+mesh = SubResource("Box_0")
+
+[node name="GatePostRightCollision" type="CollisionShape3D" parent="Geometry"]
+position = Vector3(3.4, 1.9, -10)
+shape = SubResource("Box_0_shape")
+
+[node name="GateBeam" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(0, 3.75, -10)
+mesh = SubResource("Box_1")
+
+[node name="GateBeamTop" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(0, 4.15, -10)
+mesh = SubResource("Box_2")
+
+[node name="GateSignNorth" type="Label3D" parent="Decoration"]
+position = Vector3(0, 3.1, -10.3)
+rotation = Vector3(0, 3.1416, 0)
+pixel_size = 0.012
+double_sided = false
+modulate = Color(1, 0.93, 0.75, 1)
+outline_modulate = Color(0.15, 0.08, 0.02, 1)
+text = "DESA PELABUHAN"
+font = ExtResource("3_font")
+font_size = 48
+outline_size = 14
+
+[node name="GateSignSouth" type="Label3D" parent="Decoration"]
+position = Vector3(0, 3.1, -9.7)
+rotation = Vector3(0, 0, 0)
+pixel_size = 0.012
+double_sided = false
+modulate = Color(1, 0.93, 0.75, 1)
+outline_modulate = Color(0.15, 0.08, 0.02, 1)
+text = "DESA PELABUHAN"
+font = ExtResource("3_font")
+font_size = 48
+outline_size = 14
+
+[node name="TorchPost1" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(-4.6, 1, -10)
+mesh = SubResource("Box_3")
+
+[node name="TorchFlame1" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(-4.6, 2.2, -10)
+cast_shadow = 0
+mesh = SubResource("Mesh_flame")
+
+[node name="TorchLight1" type="OmniLight3D" parent="Decoration"]
+position = Vector3(-4.6, 2.4, -10)
+light_color = Color(1, 0.66, 0.35, 1)
+light_energy = 1.4
+omni_range = 7.0
+
+[node name="TorchPost2" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(4.6, 1, -10)
+mesh = SubResource("Box_3")
+
+[node name="TorchFlame2" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(4.6, 2.2, -10)
+cast_shadow = 0
+mesh = SubResource("Mesh_flame")
+
+[node name="TorchLight2" type="OmniLight3D" parent="Decoration"]
+position = Vector3(4.6, 2.4, -10)
+light_color = Color(1, 0.66, 0.35, 1)
+light_energy = 1.4
+omni_range = 7.0
+
+[node name="TorchPost3" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(7.4, 1, 14.5)
+mesh = SubResource("Box_3")
+
+[node name="TorchFlame3" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(7.4, 2.2, 14.5)
+cast_shadow = 0
+mesh = SubResource("Mesh_flame")
+
+[node name="TorchLight3" type="OmniLight3D" parent="Decoration"]
+position = Vector3(7.4, 2.4, 14.5)
+light_color = Color(1, 0.66, 0.35, 1)
+light_energy = 1.4
+omni_range = 7.0
+
+[node name="TorchPost4" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(-2.4, 1, 31)
+mesh = SubResource("Box_3")
+
+[node name="TorchFlame4" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(-2.4, 2.2, 31)
+cast_shadow = 0
+mesh = SubResource("Mesh_flame")
+
+[node name="TorchLight4" type="OmniLight3D" parent="Decoration"]
+position = Vector3(-2.4, 2.4, 31)
+light_color = Color(1, 0.66, 0.35, 1)
+light_energy = 1.4
+omni_range = 7.0
+
+[node name="Crate1Mesh" type="MeshInstance3D" parent="Geometry"]
+position = Vector3(-4.2, 0.5, 29.5)
+rotation = Vector3(0, 0.2, 0)
+mesh = SubResource("Box_4")
+
+[node name="Crate1Collision" type="CollisionShape3D" parent="Geometry"]
+position = Vector3(-4.2, 0.5, 29.5)
+rotation = Vector3(0, 0.2, 0)
+shape = SubResource("Box_4_shape")
+
+[node name="Crate2Mesh" type="MeshInstance3D" parent="Geometry"]
+position = Vector3(-5.4, 0.4, 30.4)
+rotation = Vector3(0, 0.9, 0)
+mesh = SubResource("Box_5")
+
+[node name="Crate2Collision" type="CollisionShape3D" parent="Geometry"]
+position = Vector3(-5.4, 0.4, 30.4)
+rotation = Vector3(0, 0.9, 0)
+shape = SubResource("Box_5_shape")
+
+[node name="Crate3Mesh" type="MeshInstance3D" parent="Geometry"]
+position = Vector3(-4.5, 0.35, 30.6)
+rotation = Vector3(0, 0.5, 0)
+mesh = SubResource("Box_6")
+
+[node name="Crate3Collision" type="CollisionShape3D" parent="Geometry"]
+position = Vector3(-4.5, 0.35, 30.6)
+rotation = Vector3(0, 0.5, 0)
+shape = SubResource("Box_6_shape")
+
+[node name="Crate4Mesh" type="MeshInstance3D" parent="Geometry"]
+position = Vector3(4.4, 0.5, 30.2)
+rotation = Vector3(0, 1.2, 0)
+mesh = SubResource("Box_4")
+
+[node name="Crate4Collision" type="CollisionShape3D" parent="Geometry"]
+position = Vector3(4.4, 0.5, 30.2)
+rotation = Vector3(0, 1.2, 0)
+shape = SubResource("Box_4_shape")
+
+[node name="Barrel1Mesh" type="MeshInstance3D" parent="Geometry"]
+position = Vector3(5.6, 0.5, 29.4)
+mesh = SubResource("Mesh_barrel")
+
+[node name="Barrel1Collision" type="CollisionShape3D" parent="Geometry"]
+position = Vector3(5.6, 0.5, 29.4)
+shape = SubResource("Shape_barrel")
+
+[node name="Barrel2Mesh" type="MeshInstance3D" parent="Geometry"]
+position = Vector3(5.2, 0.5, 31.2)
+mesh = SubResource("Mesh_barrel")
+
+[node name="Barrel2Collision" type="CollisionShape3D" parent="Geometry"]
+position = Vector3(5.2, 0.5, 31.2)
+shape = SubResource("Shape_barrel")
+
+[node name="Barrel3Mesh" type="MeshInstance3D" parent="Geometry"]
+position = Vector3(-9.5, 0.5, 12.5)
+mesh = SubResource("Mesh_barrel")
+
+[node name="Barrel3Collision" type="CollisionShape3D" parent="Geometry"]
+position = Vector3(-9.5, 0.5, 12.5)
+shape = SubResource("Shape_barrel")
+
+[node name="DockMesh" type="MeshInstance3D" parent="Geometry"]
+position = Vector3(0, 0.15, 41.5)
+mesh = SubResource("Box_7")
+
+[node name="DockCollision" type="CollisionShape3D" parent="Geometry"]
+position = Vector3(0, 0.15, 41.5)
+shape = SubResource("Box_7_shape")
+
+[node name="DockPost00" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(-1.6, -0.4, 35)
+mesh = SubResource("Box_8")
+
+[node name="DockPost01" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(1.6, -0.4, 35)
+mesh = SubResource("Box_8")
+
+[node name="DockPost10" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(-1.6, -0.4, 39)
+mesh = SubResource("Box_8")
+
+[node name="DockPost11" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(1.6, -0.4, 39)
+mesh = SubResource("Box_8")
+
+[node name="DockPost20" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(-1.6, -0.4, 43)
+mesh = SubResource("Box_8")
+
+[node name="DockPost21" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(1.6, -0.4, 43)
+mesh = SubResource("Box_8")
+
+[node name="DockPost30" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(-1.6, -0.4, 47)
+mesh = SubResource("Box_8")
+
+[node name="DockPost31" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(1.6, -0.4, 47)
+mesh = SubResource("Box_8")
+
+[node name="DockPost40" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(-1.6, -0.4, 49.6)
+mesh = SubResource("Box_8")
+
+[node name="DockPost41" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(1.6, -0.4, 49.6)
+mesh = SubResource("Box_8")
+
+[node name="DockRailLeftCollision" type="CollisionShape3D" parent="Geometry"]
+position = Vector3(-1.6, 7, 45.3)
+shape = SubResource("Box_9_shape")
+
+[node name="DockRailRightCollision" type="CollisionShape3D" parent="Geometry"]
+position = Vector3(1.6, 7, 45.3)
+shape = SubResource("Box_9_shape")
+
+[node name="DockEndCollision" type="CollisionShape3D" parent="Geometry"]
+position = Vector3(0, 7, 50.2)
+shape = SubResource("Box_10_shape")
+
+[node name="JukungHull" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(4.6, -0.15, 45.5)
+mesh = SubResource("Box_11")
+
+[node name="JukungBow" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(4.6, 0.1, 48.4)
+rotation = Vector3(-0.35, 0, 0)
+mesh = SubResource("Box_12")
+
+[node name="JukungStern" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(4.6, 0.1, 42.6)
+rotation = Vector3(0.35, 0, 0)
+mesh = SubResource("Box_12")
+
+[node name="JukungBeam1" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(4.6, 0.22, 44.2)
+mesh = SubResource("Box_13")
+
+[node name="JukungBeam2" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(4.6, 0.22, 46.8)
+mesh = SubResource("Box_13")
+
+[node name="JukungFloat1" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(2.3, -0.25, 45.5)
+mesh = SubResource("Box_14")
+
+[node name="JukungFloat2" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(6.9, -0.25, 45.5)
+mesh = SubResource("Box_14")
+
+[node name="JukungMast" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(4.6, 1.8, 45.9)
+mesh = SubResource("Mesh_mast")
+
+[node name="JukungSail" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(4.6, 2, 44.75)
+rotation = Vector3(0, 1.5708, 0)
+mesh = SubResource("Mesh_sail")

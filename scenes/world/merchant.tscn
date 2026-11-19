@@ -1,0 +1,135 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/world/merchant.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://assets/characters/player/3DGodotRobot.glb" id="2_robot"]
+[ext_resource type="Texture2D" path="res://assets/characters/player/GodotRobotPaletteSwap/GodotYellowPalette.png" id="3_skin"]
+[ext_resource type="PackedScene" path="res://scenes/items/hats/caping_model.tscn" id="4_hat"]
+[ext_resource type="FontFile" path="res://assets/fonts/Kurland.ttf" id="5_font"]
+[ext_resource type="PackedScene" path="res://assets/items/misc/models/chicken_leg.fbx" id="6_chicken"]
+[ext_resource type="PackedScene" path="res://assets/items/weapons/models/axe.fbx" id="7_axe"]
+[ext_resource type="PackedScene" path="res://assets/items/misc/models/chalice.fbx" id="8_chalice"]
+
+[sub_resource type="BoxShape3D" id="Shape_counter"]
+size = Vector3(3.2, 1, 0.9)
+
+[sub_resource type="CapsuleShape3D" id="Shape_npc"]
+radius = 0.4
+height = 1.7
+
+[sub_resource type="StandardMaterial3D" id="Mat_wood"]
+albedo_color = Color(0.5, 0.34, 0.2, 1)
+roughness = 0.9
+
+[sub_resource type="StandardMaterial3D" id="Mat_wood_dark"]
+albedo_color = Color(0.3, 0.2, 0.11, 1)
+roughness = 0.9
+
+[sub_resource type="StandardMaterial3D" id="Mat_cloth"]
+albedo_color = Color(0.74, 0.2, 0.16, 1)
+roughness = 0.85
+cull_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="Mat_cloth_light"]
+albedo_color = Color(0.93, 0.88, 0.76, 1)
+roughness = 0.85
+
+[sub_resource type="BoxMesh" id="Mesh_counter"]
+material = SubResource("Mat_wood")
+size = Vector3(3.2, 1, 0.9)
+
+[sub_resource type="BoxMesh" id="Mesh_counter_top"]
+material = SubResource("Mat_cloth_light")
+size = Vector3(3.3, 0.06, 1)
+
+[sub_resource type="BoxMesh" id="Mesh_post"]
+material = SubResource("Mat_wood_dark")
+size = Vector3(0.16, 3, 0.16)
+
+[sub_resource type="BoxMesh" id="Mesh_awning"]
+material = SubResource("Mat_cloth")
+size = Vector3(4, 0.08, 3.2)
+
+[sub_resource type="BoxMesh" id="Mesh_crate"]
+material = SubResource("Mat_wood_dark")
+size = Vector3(0.8, 0.8, 0.8)
+
+[node name="Merchant" type="StaticBody3D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_script")
+skin_texture = ExtResource("3_skin")
+
+[node name="CounterCollision" type="CollisionShape3D" parent="."]
+position = Vector3(0, 0.5, 0.5)
+shape = SubResource("Shape_counter")
+
+[node name="NpcCollision" type="CollisionShape3D" parent="."]
+position = Vector3(0, 0.85, -0.6)
+shape = SubResource("Shape_npc")
+
+[node name="Stall" type="Node3D" parent="."]
+
+[node name="Counter" type="MeshInstance3D" parent="Stall"]
+position = Vector3(0, 0.5, 0.5)
+mesh = SubResource("Mesh_counter")
+
+[node name="CounterTop" type="MeshInstance3D" parent="Stall"]
+position = Vector3(0, 1.03, 0.5)
+mesh = SubResource("Mesh_counter_top")
+
+[node name="PostFrontLeft" type="MeshInstance3D" parent="Stall"]
+position = Vector3(1.8, 1.5, 1.1)
+mesh = SubResource("Mesh_post")
+
+[node name="PostFrontRight" type="MeshInstance3D" parent="Stall"]
+position = Vector3(-1.8, 1.5, 1.1)
+mesh = SubResource("Mesh_post")
+
+[node name="PostBackLeft" type="MeshInstance3D" parent="Stall"]
+position = Vector3(1.8, 1.5, -1.5)
+mesh = SubResource("Mesh_post")
+
+[node name="PostBackRight" type="MeshInstance3D" parent="Stall"]
+position = Vector3(-1.8, 1.5, -1.5)
+mesh = SubResource("Mesh_post")
+
+[node name="Awning" type="MeshInstance3D" parent="Stall"]
+position = Vector3(0, 3.05, -0.2)
+rotation = Vector3(0.14, 0, 0)
+mesh = SubResource("Mesh_awning")
+
+[node name="CrateA" type="MeshInstance3D" parent="Stall"]
+position = Vector3(-1.2, 0.4, -1.1)
+rotation = Vector3(0, 0.3, 0)
+mesh = SubResource("Mesh_crate")
+
+[node name="CrateB" type="MeshInstance3D" parent="Stall"]
+position = Vector3(1.25, 0.4, -1.0)
+rotation = Vector3(0, -0.2, 0)
+mesh = SubResource("Mesh_crate")
+
+[node name="GoodsChicken" parent="Stall" instance=ExtResource("6_chicken")]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, -1.0, 1.12, 0.5)
+
+[node name="GoodsAxe" parent="Stall" instance=ExtResource("7_axe")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.0, 1.1, 0.5)
+
+[node name="GoodsChalice" parent="Stall" instance=ExtResource("8_chalice")]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0, 1.08, 0.6)
+
+[node name="Npc" type="Node3D" parent="."]
+position = Vector3(0, 0, -0.6)
+
+[node name="Robot" parent="Npc" instance=ExtResource("2_robot")]
+transform = Transform3D(1.33, 0, 0, 0, 1.33, 0, 0, 0, 1.33, 0, 0, 0)
+
+[node name="Hat" parent="Npc" instance=ExtResource("4_hat")]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 0, 2.0, 0.017)
+
+[node name="NameLabel" type="Label3D" parent="."]
+position = Vector3(0, 2.75, -0.6)
+billboard = 1
+outline_modulate = Color(0, 0, 0, 0.6)
+text = "Pedagang"
+font = ExtResource("5_font")
+font_size = 40

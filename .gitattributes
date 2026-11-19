@@ -1,0 +1,8 @@
+# Godot menulis berkas teks dengan LF; simpan apa adanya di semua sistem.
+* text=auto eol=lf
+
+*.wav binary
+*.png binary
+*.glb binary
+*.fbx binary
+*.ttf binary

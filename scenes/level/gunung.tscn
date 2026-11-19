@@ -1,0 +1,632 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/world/lava_pool.gd" id="9_lava"]
+
+[sub_resource type="StandardMaterial3D" id="Mat_basalt"]
+albedo_color = Color(0.2, 0.19, 0.2, 1)
+roughness = 1.0
+
+[sub_resource type="StandardMaterial3D" id="Mat_basalt_dark"]
+albedo_color = Color(0.12, 0.11, 0.12, 1)
+roughness = 1.0
+
+[sub_resource type="StandardMaterial3D" id="Mat_ash"]
+albedo_color = Color(0.3, 0.28, 0.27, 1)
+roughness = 1.0
+
+[sub_resource type="StandardMaterial3D" id="Mat_bridge"]
+albedo_color = Color(0.45, 0.43, 0.4, 1)
+roughness = 1.0
+
+[sub_resource type="StandardMaterial3D" id="Mat_wood_dark"]
+albedo_color = Color(0.28, 0.18, 0.1, 1)
+roughness = 0.9
+
+[sub_resource type="StandardMaterial3D" id="Mat_lava"]
+albedo_color = Color(1, 0.42, 0.06, 1)
+shading_mode = 0
+emission_enabled = true
+emission = Color(1, 0.38, 0.05, 1)
+emission_energy_multiplier = 2.6
+
+[sub_resource type="StandardMaterial3D" id="Mat_flame"]
+albedo_color = Color(1, 0.55, 0.12, 1)
+shading_mode = 0
+emission_enabled = true
+emission = Color(1, 0.5, 0.1, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="CylinderMesh" id="Mesh_flame"]
+material = SubResource("Mat_flame")
+top_radius = 0.0
+bottom_radius = 0.16
+height = 0.5
+radial_segments = 8
+
+[sub_resource type="CylinderMesh" id="Mesh_volcano"]
+material = SubResource("Mat_basalt_dark")
+top_radius = 7.0
+bottom_radius = 34.0
+height = 36.0
+radial_segments = 20
+
+[sub_resource type="CylinderMesh" id="Mesh_crater"]
+material = SubResource("Mat_lava")
+top_radius = 6.4
+bottom_radius = 6.8
+height = 0.6
+radial_segments = 20
+
+[sub_resource type="BoxMesh" id="Box_0"]
+material = SubResource("Mat_ash")
+size = Vector3(80, 4, 80)
+
+[sub_resource type="BoxShape3D" id="Box_0_shape"]
+size = Vector3(80, 4, 80)
+
+[sub_resource type="BoxMesh" id="Box_1"]
+material = SubResource("Mat_basalt")
+size = Vector3(80, 3, 55)
+
+[sub_resource type="BoxShape3D" id="Box_1_shape"]
+size = Vector3(80, 3, 55)
+
+[sub_resource type="BoxMesh" id="Box_2"]
+material = SubResource("Mat_basalt_dark")
+size = Vector3(80, 3, 27)
+
+[sub_resource type="BoxShape3D" id="Box_2_shape"]
+size = Vector3(80, 3, 27)
+
+[sub_resource type="BoxMesh" id="Box_3"]
+material = SubResource("Mat_bridge")
+size = Vector3(8, 1, 6.7082)
+
+[sub_resource type="BoxShape3D" id="Box_3_shape"]
+size = Vector3(8, 1, 6.7082)
+
+[sub_resource type="BoxMesh" id="Box_4"]
+material = SubResource("Mat_basalt_dark")
+size = Vector3(4, 18, 84)
+
+[sub_resource type="BoxShape3D" id="Box_4_shape"]
+size = Vector3(4, 18, 84)
+
+[sub_resource type="BoxMesh" id="Box_5"]
+material = SubResource("Mat_basalt_dark")
+size = Vector3(84, 18, 4)
+
+[sub_resource type="BoxShape3D" id="Box_5_shape"]
+size = Vector3(84, 18, 4)
+
+[sub_resource type="BoxMesh" id="Box_6"]
+material = SubResource("Mat_lava")
+size = Vector3(12, 0.06, 8)
+
+[sub_resource type="BoxShape3D" id="Box_6_shape"]
+size = Vector3(12, 0.06, 8)
+
+[sub_resource type="BoxMesh" id="Box_7"]
+material = SubResource("Mat_lava")
+size = Vector3(10, 0.06, 8)
+
+[sub_resource type="BoxShape3D" id="Box_7_shape"]
+size = Vector3(10, 0.06, 8)
+
+[sub_resource type="BoxMesh" id="Box_8"]
+material = SubResource("Mat_lava")
+size = Vector3(19, 0.06, 8)
+
+[sub_resource type="BoxShape3D" id="Box_8_shape"]
+size = Vector3(19, 0.06, 8)
+
+[sub_resource type="BoxMesh" id="Box_9"]
+material = SubResource("Mat_lava")
+size = Vector3(56, 0.06, 8)
+
+[sub_resource type="BoxShape3D" id="Box_9_shape"]
+size = Vector3(56, 0.06, 8)
+
+[sub_resource type="BoxMesh" id="Box_10"]
+material = SubResource("Mat_lava")
+size = Vector3(8, 0.06, 8)
+
+[sub_resource type="BoxShape3D" id="Box_10_shape"]
+size = Vector3(8, 0.06, 8)
+
+[sub_resource type="BoxMesh" id="Box_11"]
+material = SubResource("Mat_bridge")
+size = Vector3(5, 0.14, 8.6)
+
+[sub_resource type="BoxShape3D" id="Box_11_shape"]
+size = Vector3(5, 0.14, 8.6)
+
+[sub_resource type="BoxMesh" id="Box_12"]
+material = SubResource("Mat_basalt_dark")
+size = Vector3(0.4, 0.5, 0.6)
+
+[sub_resource type="BoxShape3D" id="Box_12_shape"]
+size = Vector3(0.4, 0.5, 0.6)
+
+[sub_resource type="BoxMesh" id="Box_13"]
+material = SubResource("Mat_basalt_dark")
+size = Vector3(3, 2.4, 2.6)
+
+[sub_resource type="BoxShape3D" id="Box_13_shape"]
+size = Vector3(3, 2.4, 2.6)
+
+[sub_resource type="BoxMesh" id="Box_14"]
+material = SubResource("Mat_basalt_dark")
+size = Vector3(3.4, 2.8, 3)
+
+[sub_resource type="BoxShape3D" id="Box_14_shape"]
+size = Vector3(3.4, 2.8, 3)
+
+[sub_resource type="BoxMesh" id="Box_15"]
+material = SubResource("Mat_basalt_dark")
+size = Vector3(2.2, 1.6, 2)
+
+[sub_resource type="BoxShape3D" id="Box_15_shape"]
+size = Vector3(2.2, 1.6, 2)
+
+[sub_resource type="BoxMesh" id="Box_16"]
+material = SubResource("Mat_basalt_dark")
+size = Vector3(2.4, 1.8, 2.2)
+
+[sub_resource type="BoxShape3D" id="Box_16_shape"]
+size = Vector3(2.4, 1.8, 2.2)
+
+[sub_resource type="BoxMesh" id="Box_17"]
+material = SubResource("Mat_basalt_dark")
+size = Vector3(3, 2.2, 2.6)
+
+[sub_resource type="BoxShape3D" id="Box_17_shape"]
+size = Vector3(3, 2.2, 2.6)
+
+[sub_resource type="BoxMesh" id="Box_18"]
+material = SubResource("Mat_basalt_dark")
+size = Vector3(2.6, 2, 2.4)
+
+[sub_resource type="BoxShape3D" id="Box_18_shape"]
+size = Vector3(2.6, 2, 2.4)
+
+[sub_resource type="BoxMesh" id="Box_19"]
+material = SubResource("Mat_basalt_dark")
+size = Vector3(2.8, 2.2, 2.2)
+
+[sub_resource type="BoxShape3D" id="Box_19_shape"]
+size = Vector3(2.8, 2.2, 2.2)
+
+[sub_resource type="BoxMesh" id="Box_20"]
+material = SubResource("Mat_basalt_dark")
+size = Vector3(9, 0.6, 5)
+
+[sub_resource type="BoxShape3D" id="Box_20_shape"]
+size = Vector3(9, 0.6, 5)
+
+[sub_resource type="BoxMesh" id="Box_21"]
+material = SubResource("Mat_wood_dark")
+size = Vector3(0.14, 2.2, 0.14)
+
+[sub_resource type="BoxShape3D" id="Box_21_shape"]
+size = Vector3(0.14, 2.2, 0.14)
+
+[node name="Gunung" type="Node3D"]
+
+[node name="Decoration" type="Node3D" parent="."]
+
+[node name="Lava" type="Node3D" parent="."]
+
+[node name="Trees" type="Node3D" parent="."]
+
+[node name="EnemySpawns" type="Node3D" parent="."]
+
+[node name="ChestSpawns" type="Node3D" parent="."]
+
+[node name="ItemSpawns" type="Node3D" parent="."]
+
+[node name="Geometry" type="StaticBody3D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="FloorMesh" type="MeshInstance3D" parent="Geometry"]
+position = Vector3(-107, -2, -85)
+mesh = SubResource("Box_0")
+
+[node name="FloorCollision" type="CollisionShape3D" parent="Geometry"]
+position = Vector3(-107, -2, -85)
+shape = SubResource("Box_0_shape")
+
+[node name="Terrace1Mesh" type="MeshInstance3D" parent="Geometry"]
+position = Vector3(-107, 1.5, -97.5)
+mesh = SubResource("Box_1")
+
+[node name="Terrace1Collision" type="CollisionShape3D" parent="Geometry"]
+position = Vector3(-107, 1.5, -97.5)
+shape = SubResource("Box_1_shape")
+
+[node name="Terrace2Mesh" type="MeshInstance3D" parent="Geometry"]
+position = Vector3(-107, 4.5, -111.5)
+mesh = SubResource("Box_2")
+
+[node name="Terrace2Collision" type="CollisionShape3D" parent="Geometry"]
+position = Vector3(-107, 4.5, -111.5)
+shape = SubResource("Box_2_shape")
+
+[node name="Ramp1Mesh" type="MeshInstance3D" parent="Geometry"]
+position = Vector3(-107, 1.0528, -67.2236)
+rotation = Vector3(0.4636, 0, 0)
+mesh = SubResource("Box_3")
+
+[node name="Ramp1Collision" type="CollisionShape3D" parent="Geometry"]
+position = Vector3(-107, 1.0528, -67.2236)
+rotation = Vector3(0.4636, 0, 0)
+shape = SubResource("Box_3_shape")
+
+[node name="Ramp2Mesh" type="MeshInstance3D" parent="Geometry"]
+position = Vector3(-85, 4.0528, -95.2236)
+rotation = Vector3(0.4636, 0, 0)
+mesh = SubResource("Box_3")
+
+[node name="Ramp2Collision" type="CollisionShape3D" parent="Geometry"]
+position = Vector3(-85, 4.0528, -95.2236)
+rotation = Vector3(0.4636, 0, 0)
+shape = SubResource("Box_3_shape")
+
+[node name="WallWestMesh" type="MeshInstance3D" parent="Geometry"]
+position = Vector3(-149, 9, -85)
+mesh = SubResource("Box_4")
+
+[node name="WallWestCollision" type="CollisionShape3D" parent="Geometry"]
+position = Vector3(-149, 9, -85)
+shape = SubResource("Box_4_shape")
+
+[node name="WallNorthMesh" type="MeshInstance3D" parent="Geometry"]
+position = Vector3(-107, 9, -127)
+mesh = SubResource("Box_5")
+
+[node name="WallNorthCollision" type="CollisionShape3D" parent="Geometry"]
+position = Vector3(-107, 9, -127)
+shape = SubResource("Box_5_shape")
+
+[node name="WallEastMesh" type="MeshInstance3D" parent="Geometry"]
+position = Vector3(-65, 9, -85)
+mesh = SubResource("Box_4")
+
+[node name="WallEastCollision" type="CollisionShape3D" parent="Geometry"]
+position = Vector3(-65, 9, -85)
+shape = SubResource("Box_4_shape")
+
+[node name="Volcano" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(-107, 18, -162)
+mesh = SubResource("Mesh_volcano")
+
+[node name="Crater" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(-107, 36.1, -162)
+cast_shadow = 0
+mesh = SubResource("Mesh_crater")
+
+[node name="PoolFootWest" type="Node3D" parent="Lava"]
+position = Vector3(-127, 0, -56)
+script = ExtResource("9_lava")
+half_extents = Vector2(6, 4)
+
+[node name="Surface" type="MeshInstance3D" parent="Lava/PoolFootWest"]
+position = Vector3(0, 0.03, 0)
+cast_shadow = 0
+mesh = SubResource("Box_6")
+
+[node name="Glow" type="OmniLight3D" parent="Lava/PoolFootWest"]
+position = Vector3(0, 1.6, 0)
+light_color = Color(1, 0.45, 0.15, 1)
+light_energy = 2.2
+omni_range = 13.8
+
+[node name="PoolFootEast" type="Node3D" parent="Lava"]
+position = Vector3(-88, 0, -58)
+script = ExtResource("9_lava")
+half_extents = Vector2(5, 4)
+
+[node name="Surface" type="MeshInstance3D" parent="Lava/PoolFootEast"]
+position = Vector3(0, 0.03, 0)
+cast_shadow = 0
+mesh = SubResource("Box_7")
+
+[node name="Glow" type="OmniLight3D" parent="Lava/PoolFootEast"]
+position = Vector3(0, 1.6, 0)
+light_color = Color(1, 0.45, 0.15, 1)
+light_energy = 2.2
+omni_range = 12
+
+[node name="RiverWest" type="Node3D" parent="Lava"]
+position = Vector3(-137.5, 3, -84)
+script = ExtResource("9_lava")
+half_extents = Vector2(9.5, 4)
+
+[node name="Surface" type="MeshInstance3D" parent="Lava/RiverWest"]
+position = Vector3(0, 0.03, 0)
+cast_shadow = 0
+mesh = SubResource("Box_8")
+
+[node name="Glow" type="OmniLight3D" parent="Lava/RiverWest"]
+position = Vector3(0, 1.6, 0)
+light_color = Color(1, 0.45, 0.15, 1)
+light_energy = 2.2
+omni_range = 16
+
+[node name="RiverEast" type="Node3D" parent="Lava"]
+position = Vector3(-95, 3, -84)
+script = ExtResource("9_lava")
+half_extents = Vector2(28, 4)
+
+[node name="Surface" type="MeshInstance3D" parent="Lava/RiverEast"]
+position = Vector3(0, 0.03, 0)
+cast_shadow = 0
+mesh = SubResource("Box_9")
+
+[node name="Glow" type="OmniLight3D" parent="Lava/RiverEast"]
+position = Vector3(0, 1.6, 0)
+light_color = Color(1, 0.45, 0.15, 1)
+light_energy = 2.2
+omni_range = 16
+
+[node name="PoolSummitWest" type="Node3D" parent="Lava"]
+position = Vector3(-140, 6, -119)
+script = ExtResource("9_lava")
+half_extents = Vector2(4, 4)
+
+[node name="Surface" type="MeshInstance3D" parent="Lava/PoolSummitWest"]
+position = Vector3(0, 0.03, 0)
+cast_shadow = 0
+mesh = SubResource("Box_10")
+
+[node name="Glow" type="OmniLight3D" parent="Lava/PoolSummitWest"]
+position = Vector3(0, 1.6, 0)
+light_color = Color(1, 0.45, 0.15, 1)
+light_energy = 2.2
+omni_range = 10.2
+
+[node name="PoolSummitEast" type="Node3D" parent="Lava"]
+position = Vector3(-74, 6, -119)
+script = ExtResource("9_lava")
+half_extents = Vector2(4, 4)
+
+[node name="Surface" type="MeshInstance3D" parent="Lava/PoolSummitEast"]
+position = Vector3(0, 0.03, 0)
+cast_shadow = 0
+mesh = SubResource("Box_10")
+
+[node name="Glow" type="OmniLight3D" parent="Lava/PoolSummitEast"]
+position = Vector3(0, 1.6, 0)
+light_color = Color(1, 0.45, 0.15, 1)
+light_energy = 2.2
+omni_range = 10.2
+
+[node name="Bridge" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(-125.5, 3.02, -84)
+mesh = SubResource("Box_11")
+
+[node name="BridgeCurbWest0" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(-128.1, 3.25, -79.6)
+mesh = SubResource("Box_12")
+
+[node name="BridgeCurbEast0" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(-122.9, 3.25, -79.6)
+mesh = SubResource("Box_12")
+
+[node name="BridgeCurbWest1" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(-128.1, 3.25, -88.4)
+mesh = SubResource("Box_12")
+
+[node name="BridgeCurbEast1" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(-122.9, 3.25, -88.4)
+mesh = SubResource("Box_12")
+
+[node name="Rock1Mesh" type="MeshInstance3D" parent="Geometry"]
+position = Vector3(-74, 1, -66)
+rotation = Vector3(0, 0.4, 0.1)
+mesh = SubResource("Box_13")
+
+[node name="Rock1Collision" type="CollisionShape3D" parent="Geometry"]
+position = Vector3(-74, 1, -66)
+rotation = Vector3(0, 0.4, 0.1)
+shape = SubResource("Box_13_shape")
+
+[node name="Rock2Mesh" type="MeshInstance3D" parent="Geometry"]
+position = Vector3(-140, 1.2, -66)
+rotation = Vector3(0, 1.1, 0.1)
+mesh = SubResource("Box_14")
+
+[node name="Rock2Collision" type="CollisionShape3D" parent="Geometry"]
+position = Vector3(-140, 1.2, -66)
+rotation = Vector3(0, 1.1, 0.1)
+shape = SubResource("Box_14_shape")
+
+[node name="Rock3Mesh" type="MeshInstance3D" parent="Geometry"]
+position = Vector3(-99, 0.6, -51)
+rotation = Vector3(0, 0.7, 0.1)
+mesh = SubResource("Box_15")
+
+[node name="Rock3Collision" type="CollisionShape3D" parent="Geometry"]
+position = Vector3(-99, 0.6, -51)
+rotation = Vector3(0, 0.7, 0.1)
+shape = SubResource("Box_15_shape")
+
+[node name="Rock4Mesh" type="MeshInstance3D" parent="Geometry"]
+position = Vector3(-108, 3.7, -78)
+rotation = Vector3(0, 0.3, 0.1)
+mesh = SubResource("Box_16")
+
+[node name="Rock4Collision" type="CollisionShape3D" parent="Geometry"]
+position = Vector3(-108, 3.7, -78)
+rotation = Vector3(0, 0.3, 0.1)
+shape = SubResource("Box_16_shape")
+
+[node name="Rock5Mesh" type="MeshInstance3D" parent="Geometry"]
+position = Vector3(-134, 3.9, -93)
+rotation = Vector3(0, 1.5, 0.1)
+mesh = SubResource("Box_17")
+
+[node name="Rock5Collision" type="CollisionShape3D" parent="Geometry"]
+position = Vector3(-134, 3.9, -93)
+rotation = Vector3(0, 1.5, 0.1)
+shape = SubResource("Box_17_shape")
+
+[node name="Rock6Mesh" type="MeshInstance3D" parent="Geometry"]
+position = Vector3(-120, 6.8, -104)
+rotation = Vector3(0, 0.9, 0.1)
+mesh = SubResource("Box_18")
+
+[node name="Rock6Collision" type="CollisionShape3D" parent="Geometry"]
+position = Vector3(-120, 6.8, -104)
+rotation = Vector3(0, 0.9, 0.1)
+shape = SubResource("Box_18_shape")
+
+[node name="Rock7Mesh" type="MeshInstance3D" parent="Geometry"]
+position = Vector3(-79, 6.9, -112)
+rotation = Vector3(0, 2, 0.1)
+mesh = SubResource("Box_19")
+
+[node name="Rock7Collision" type="CollisionShape3D" parent="Geometry"]
+position = Vector3(-79, 6.9, -112)
+rotation = Vector3(0, 2, 0.1)
+shape = SubResource("Box_19_shape")
+
+[node name="DaisMesh" type="MeshInstance3D" parent="Geometry"]
+position = Vector3(-107, 6.3, -122)
+mesh = SubResource("Box_20")
+
+[node name="DaisCollision" type="CollisionShape3D" parent="Geometry"]
+position = Vector3(-107, 6.3, -122)
+shape = SubResource("Box_20_shape")
+
+[node name="TorchPost1" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(-111.5, 1.1, -63)
+mesh = SubResource("Box_21")
+
+[node name="TorchFlame1" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(-111.5, 2.45, -63)
+cast_shadow = 0
+mesh = SubResource("Mesh_flame")
+
+[node name="TorchLight1" type="OmniLight3D" parent="Decoration"]
+position = Vector3(-111.5, 2.7, -63)
+light_color = Color(1, 0.66, 0.35, 1)
+light_energy = 1.6
+omni_range = 8.0
+
+[node name="TorchPost2" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(-102.5, 1.1, -63)
+mesh = SubResource("Box_21")
+
+[node name="TorchFlame2" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(-102.5, 2.45, -63)
+cast_shadow = 0
+mesh = SubResource("Mesh_flame")
+
+[node name="TorchLight2" type="OmniLight3D" parent="Decoration"]
+position = Vector3(-102.5, 2.7, -63)
+light_color = Color(1, 0.66, 0.35, 1)
+light_energy = 1.6
+omni_range = 8.0
+
+[node name="TorchPost3" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(-112, 7.7, -120.5)
+mesh = SubResource("Box_21")
+
+[node name="TorchFlame3" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(-112, 9.05, -120.5)
+cast_shadow = 0
+mesh = SubResource("Mesh_flame")
+
+[node name="TorchLight3" type="OmniLight3D" parent="Decoration"]
+position = Vector3(-112, 9.3, -120.5)
+light_color = Color(1, 0.66, 0.35, 1)
+light_energy = 1.6
+omni_range = 8.0
+
+[node name="TorchPost4" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(-102, 7.7, -120.5)
+mesh = SubResource("Box_21")
+
+[node name="TorchFlame4" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(-102, 9.05, -120.5)
+cast_shadow = 0
+mesh = SubResource("Mesh_flame")
+
+[node name="TorchLight4" type="OmniLight3D" parent="Decoration"]
+position = Vector3(-102, 9.3, -120.5)
+light_color = Color(1, 0.66, 0.35, 1)
+light_energy = 1.6
+omni_range = 8.0
+
+[node name="TorchPost5" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(-128.4, 4.1, -78.5)
+mesh = SubResource("Box_21")
+
+[node name="TorchFlame5" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(-128.4, 5.45, -78.5)
+cast_shadow = 0
+mesh = SubResource("Mesh_flame")
+
+[node name="TorchLight5" type="OmniLight3D" parent="Decoration"]
+position = Vector3(-128.4, 5.7, -78.5)
+light_color = Color(1, 0.66, 0.35, 1)
+light_energy = 1.6
+omni_range = 8.0
+
+[node name="TorchPost6" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(-122.6, 4.1, -78.5)
+mesh = SubResource("Box_21")
+
+[node name="TorchFlame6" type="MeshInstance3D" parent="Decoration"]
+position = Vector3(-122.6, 5.45, -78.5)
+cast_shadow = 0
+mesh = SubResource("Mesh_flame")
+
+[node name="TorchLight6" type="OmniLight3D" parent="Decoration"]
+position = Vector3(-122.6, 5.7, -78.5)
+light_color = Color(1, 0.66, 0.35, 1)
+light_energy = 1.6
+omni_range = 8.0
+
+[node name="Tiger1" type="Marker3D" parent="EnemySpawns"]
+position = Vector3(-113, 0, -53)
+metadata/enemy_type = "tiger"
+metadata/respawn_seconds = 120
+
+[node name="Tiger2" type="Marker3D" parent="EnemySpawns"]
+position = Vector3(-96, 0, -64)
+metadata/enemy_type = "tiger"
+metadata/respawn_seconds = 120
+
+[node name="Guardian1" type="Marker3D" parent="EnemySpawns"]
+position = Vector3(-118, 3, -75)
+metadata/enemy_type = "guardian"
+
+[node name="Guardian2" type="Marker3D" parent="EnemySpawns"]
+position = Vector3(-96, 3, -75)
+metadata/enemy_type = "guardian"
+
+[node name="Giant" type="Marker3D" parent="EnemySpawns"]
+position = Vector3(-107, 6, -112)
+metadata/enemy_type = "giant"
+metadata/respawn_seconds = 300
+
+[node name="FootEast" type="Marker3D" parent="ChestSpawns"]
+position = Vector3(-71, 0, -49.5)
+rotation = Vector3(0, -1.5708, 0)
+
+[node name="AcrossRiver" type="Marker3D" parent="ChestSpawns"]
+position = Vector3(-71, 3, -94)
+rotation = Vector3(0, -1.5708, 0)
+
+[node name="PetiPusakaGunung" type="Marker3D" parent="ChestSpawns"]
+position = Vector3(-107, 6.6, -122.3)
+rotation = Vector3(0, 0, 0)
+metadata/guaranteed_item = "tombak_pusaka"
+metadata/loot_rolls = 3
+metadata/coins_min = 120
+metadata/coins_max = 180
+metadata/chest_scale = 1.5
+metadata/announce_name = "Peti Pusaka Gunung"

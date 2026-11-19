@@ -1,0 +1,95 @@
+[gd_scene format=3]
+
+[sub_resource type="StandardMaterial3D" id="Mat_wood"]
+albedo_color = Color(0.3, 0.19, 0.1, 1)
+roughness = 0.8
+
+[sub_resource type="CylinderMesh" id="Mesh_0"]
+material = SubResource("Mat_wood")
+top_radius = 0.022
+bottom_radius = 0.026
+height = 1.9
+radial_segments = 16
+
+[sub_resource type="StandardMaterial3D" id="Mat_gold"]
+albedo_color = Color(0.98, 0.78, 0.25, 1)
+metallic = 0.9
+roughness = 0.25
+emission_enabled = true
+emission = Color(1, 0.72, 0.2, 1)
+emission_energy_multiplier = 0.8
+
+[sub_resource type="CylinderMesh" id="Mesh_1"]
+material = SubResource("Mat_gold")
+top_radius = 0.04
+bottom_radius = 0.04
+height = 0.09
+radial_segments = 16
+
+[sub_resource type="StandardMaterial3D" id="Mat_red_cloth"]
+albedo_color = Color(0.75, 0.12, 0.1, 1)
+roughness = 0.9
+
+[sub_resource type="CylinderMesh" id="Mesh_2"]
+material = SubResource("Mat_red_cloth")
+top_radius = 0.03
+bottom_radius = 0.075
+height = 0.2
+radial_segments = 16
+
+[sub_resource type="StandardMaterial3D" id="Mat_fire_blade"]
+albedo_color = Color(1, 0.55, 0.2, 1)
+metallic = 0.6
+roughness = 0.3
+emission_enabled = true
+emission = Color(1, 0.4, 0.1, 1)
+emission_energy_multiplier = 1.6
+
+[sub_resource type="CylinderMesh" id="Mesh_3"]
+material = SubResource("Mat_fire_blade")
+top_radius = 0
+bottom_radius = 0.085
+height = 0.42
+radial_segments = 16
+
+[sub_resource type="CylinderMesh" id="Mesh_4"]
+material = SubResource("Mat_fire_blade")
+top_radius = 0.085
+bottom_radius = 0.03
+height = 0.07
+radial_segments = 16
+
+[sub_resource type="CylinderMesh" id="Mesh_5"]
+material = SubResource("Mat_gold")
+top_radius = 0.03
+bottom_radius = 0.01
+height = 0.1
+radial_segments = 16
+
+[node name="TombakModel" type="Node3D"]
+
+[node name="Shaft" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.35, 0)
+mesh = SubResource("Mesh_0")
+
+[node name="Collar" type="MeshInstance3D" parent="."]
+position = Vector3(0, 1.3, 0)
+mesh = SubResource("Mesh_1")
+
+[node name="Tassel" type="MeshInstance3D" parent="."]
+position = Vector3(0, 1.17, 0)
+mesh = SubResource("Mesh_2")
+
+[node name="Head" type="MeshInstance3D" parent="."]
+position = Vector3(0, 1.55, 0)
+scale = Vector3(1, 1, 0.3)
+mesh = SubResource("Mesh_3")
+
+[node name="HeadBase" type="MeshInstance3D" parent="."]
+position = Vector3(0, 1.31, 0)
+scale = Vector3(1, 1, 0.3)
+mesh = SubResource("Mesh_4")
+
+[node name="Butt" type="MeshInstance3D" parent="."]
+position = Vector3(0, -0.64, 0)
+mesh = SubResource("Mesh_5")

@@ -1,0 +1,70 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/world/spike_trap.gd" id="1_script"]
+
+[sub_resource type="StandardMaterial3D" id="Mat_plate"]
+albedo_color = Color(0.36, 0.2, 0.17, 1)
+roughness = 1.0
+
+[sub_resource type="StandardMaterial3D" id="Mat_spike"]
+albedo_color = Color(0.16, 0.16, 0.19, 1)
+metallic = 0.4
+roughness = 0.5
+
+[sub_resource type="BoxMesh" id="Mesh_plate"]
+material = SubResource("Mat_plate")
+size = Vector3(2, 0.06, 2)
+
+[sub_resource type="CylinderMesh" id="Mesh_spike"]
+material = SubResource("Mat_spike")
+top_radius = 0.0
+bottom_radius = 0.17
+height = 0.8
+radial_segments = 6
+
+[node name="SpikeTrap" type="Node3D"]
+script = ExtResource("1_script")
+
+[node name="Plate" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.03, 0)
+cast_shadow = 0
+mesh = SubResource("Mesh_plate")
+
+[node name="Spikes" type="Node3D" parent="."]
+position = Vector3(0, -0.75, 0)
+
+[node name="Spike1" type="MeshInstance3D" parent="Spikes"]
+position = Vector3(-0.6, 0.4, -0.6)
+mesh = SubResource("Mesh_spike")
+
+[node name="Spike2" type="MeshInstance3D" parent="Spikes"]
+position = Vector3(-0.6, 0.4, 0)
+mesh = SubResource("Mesh_spike")
+
+[node name="Spike3" type="MeshInstance3D" parent="Spikes"]
+position = Vector3(-0.6, 0.4, 0.6)
+mesh = SubResource("Mesh_spike")
+
+[node name="Spike4" type="MeshInstance3D" parent="Spikes"]
+position = Vector3(0, 0.4, -0.6)
+mesh = SubResource("Mesh_spike")
+
+[node name="Spike5" type="MeshInstance3D" parent="Spikes"]
+position = Vector3(0, 0.4, 0)
+mesh = SubResource("Mesh_spike")
+
+[node name="Spike6" type="MeshInstance3D" parent="Spikes"]
+position = Vector3(0, 0.4, 0.6)
+mesh = SubResource("Mesh_spike")
+
+[node name="Spike7" type="MeshInstance3D" parent="Spikes"]
+position = Vector3(0.6, 0.4, -0.6)
+mesh = SubResource("Mesh_spike")
+
+[node name="Spike8" type="MeshInstance3D" parent="Spikes"]
+position = Vector3(0.6, 0.4, 0)
+mesh = SubResource("Mesh_spike")
+
+[node name="Spike9" type="MeshInstance3D" parent="Spikes"]
+position = Vector3(0.6, 0.4, 0.6)
+mesh = SubResource("Mesh_spike")
